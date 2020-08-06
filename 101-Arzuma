@@ -1,0 +1,122 @@
+return model =
+  name: 'Arzuma'
+  level: 1
+  model: 1
+  size: 1.1
+  specs:
+    shield:
+      capacity: [100,125]
+      reload: [3,4]
+    generator:
+      capacity: [50,65]
+      reload: [12,17]
+    ship:
+      mass: 65
+      speed: [130,150]
+      rotation: [70,110]
+      acceleration: [100,140]
+  bodies:
+    main:
+      section_segments: 7
+      offset:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0]
+        y: [-104,-96,-100,-85,-62.5,-40,20,70,60]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,2.5,3,8,16,19,26,22,0]
+      height: [0,2.5,3,9,14,16,22,20,0]
+      texture: [1.9,4,1.9,1.9,63,17.95,2,16.9]
+      propeller: true
+    cockpit:
+      section_segments: 8
+      offset:
+        x: 0
+        y: -60
+        z: 13
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-12,2,34,48,54]
+        z: [-1.4,-2,-1,1,6.2]
+      width: [0,7,11,7,0]
+      height: [0,7,11,9,0]
+      texture: [4,9,4,4]
+    sideThrusters:
+      section_segments: 8
+      offset:
+        x: 32
+        y: 40
+        z: 0
+      position:
+        x: [-12,-8,-4.5,-1,0,0,0]
+        y: [-50,-45,-20,0,20,30,20]
+        z: [0,0,0,0,0,0,0]
+      width: [0,6,9,11,11,8,0]
+      height: [0,6,9,11,11,8,0]
+      texture: [4,4,2,63,2,17]
+      propeller: true
+    topThruster:
+      section_segments: 9
+      offset:
+        x: 0
+        y: 44
+        z: 22
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-48,-41,-20,0,18,23,14]
+        z: [-3,-3,-2,-1,-1,0,0]
+      width: [0,6,9,11,11,8,0]
+      height: [0,6,9,11,11,8,0]
+      texture: [4,4,63,4,4,17]
+      propeller: true
+    mainCannon:
+      section_segments: 8
+      offset:
+        x: 0
+        y: -44
+        z: -15
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-49,-52,-20,0,8,11,14]
+        z: [0,0,0,0,0,0,0]
+      width: [0,3,5,7,6,4,0]
+      height: [0,3,5,7,6,4,0]
+      texture: [17,4,63,4,2,4]
+      laser:
+        damage: [7,10]
+        rate: 3.5
+        type: 1
+        speed: [150,180]
+        number: 1
+        error: 4
+  wings:
+    top:
+      doubleside: true
+      offset:
+        x: 12
+        y: 34
+        z: 0
+      length: [50]
+      width: [54,20]
+      angle: [50]
+      position: [0,24]
+      texture: [4]
+      bump:
+        position: 10
+        size: 15
+    main:
+      doubleside: true
+      offset:
+        x: 0
+        y: -20
+        z: 7
+      length: [70,14]
+      width: [85,40,20]
+      angle: [-30,-40]
+      position: [30,90,75]
+      texture: [18,2]
+      bump:
+        position: 10
+        size: 4
