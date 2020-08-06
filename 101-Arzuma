@@ -99,12 +99,26 @@ model =
       width: [0,9,14,13,0]
       height: [0,12,14,12,0]
       texture: [7,9,9,7]
+    sideTop:
+      section_segments: 10
+      offset:
+        x: 56
+        y: 23+mainypos
+        z: 12
+      position:
+        x: [-4,0,1,0,0]
+        y: [-33,-19,28,94,86]
+        z: [0,0,0,0,0]
+      width: [0,11,19,16,0]
+      height: [0,11,18,14,0]
+      texture: [3,63,11,16.9]
+      propeller: true
     side:
       section_segments: 10
       offset:
         x: 56
         y: 23+mainypos
-        z: -4
+        z: -20
       position:
         x: [-4,0,1,0,0]
         y: [-33,-19,28,94,86]
@@ -133,21 +147,6 @@ model =
         speed: [140,170]
         number: 1
         error: 2
-#detail?
-    topV8Base:
-      section_segments: 8
-      offset:
-        x: 57.5
-        y: -4.4
-        z: -57-mainypos
-      position:
-        x: [0,0,0,0,0]
-        y: [0,0,20,20,18]
-        z: [0,0,0,0,0]
-      width: [0,13,13,11,0]
-      height: [0,13,13,11,0]
-      texture: [4,4,63,17]
-      vertical: true
     topV8Base2:
       section_segments: 8
       offset:
@@ -163,29 +162,29 @@ model =
       texture: [4,4,63,17]
       vertical: true
   wings:
-    coreTop:
-      doubleside: true
-      offset:
-        x: 57.5
-        y: 30+mainypos
-        z: 14
-      length: [0,12]
-      width: [0,70,7]
-      angle: [0,90]
-      position: [0,0,25]
-      bump:
-        position: 27
-        size: 10
-      texture: [3]
-    main:
+    main1:
       doubleside: true
       offset:
         x: -4
         y: 64+mainypos
-        z: 5
+        z: 0
       length: [70]
       width: [73,63]
       angle: [-14]
+      position: [7,-22]
+      bump:
+        position: 20
+        size: 10
+      texture: [8.15]
+    main2:
+      doubleside: true
+      offset:
+        x: -4
+        y: 64+mainypos
+        z: -5
+      length: [70]
+      width: [73,63]
+      angle: [14]
       position: [7,-22]
       bump:
         position: 20
@@ -196,7 +195,7 @@ model =
       offset:
         x: 70
         y: 80+mainypos
-        z: -7
+        z: 16
       length: [60]
       width: [55,26]
       angle: [15]
@@ -210,7 +209,7 @@ model =
       offset:
         x: 70
         y: 80+mainypos
-        z: -7
+        z: 16
       length: [60]
       width: [55,26]
       angle: [15]
@@ -224,7 +223,7 @@ model =
       offset:
         x: 70
         y: 80+mainypos
-        z: -7
+        z: 16
       length: [60]
       width: [55,26]
       angle: [15]
@@ -238,7 +237,7 @@ model =
       offset:
         x: 70
         y: 80+mainypos
-        z: -7
+        z: 16
       length: [58.5]
       width: [55,26]
       angle: [15]
@@ -247,4 +246,61 @@ model =
         position: 9
         size: 9
       texture: [4]
+    secondary9:
+      doubleside: true
+      offset:
+        x: 70
+        y: 80+mainypos
+        z: -16
+      length: [60]
+      width: [55,26]
+      angle: [-15]
+      position: [0,12]
+      bump:
+        position: 9
+        size: 8
+      texture: [63]
+    secondaryCov9:
+      doubleside: true
+      offset:
+        x: 70
+        y: 80+mainypos
+        z: -16
+      length: [60]
+      width: [55,26]
+      angle: [-15]
+      position: [0,12]
+      bump:
+        position: 0
+        size: 7
+      texture: [4]
+    secondaryC29:
+      doubleside: true
+      offset:
+        x: 70
+        y: 80+mainypos
+        z: -16
+      length: [60]
+      width: [55,26]
+      angle: [-15]
+      position: [0,12]
+      bump:
+        position: 15
+        size: 7
+      texture: [4]
+    secondaryC39:
+      doubleside: true
+      offset:
+        x: 70
+        y: 80+mainypos
+        z: -16
+      length: [58.5]
+      width: [55,26]
+      angle: [-15]
+      position: [0,12]
+      bump:
+        position: 9
+        size: 9
+      texture: [4]
+
 return model;
