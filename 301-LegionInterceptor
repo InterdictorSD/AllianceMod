@@ -1,0 +1,168 @@
+return model =
+  name: "Legion Interceptor"
+  level: 3
+  model: 1
+  size: 1.5
+  specs:
+    shield:
+      capacity: [145,180]
+      reload: [4,6]
+    generator:
+      capacity: [80,110]
+      reload: [24,35]
+    ship:
+      mass: 120
+      speed: [135,150]
+      rotation: [80,130]
+      acceleration: [100,150]
+  bodies:
+    main:
+      section_segments: 9
+      offset:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0]
+        y: [-103,-92,-78,-52,0,34,104,110,118]
+        z: [3,1,0,0,0,0,0,0,0]
+      width: [0,10,16,22,29.6,29,23,21,0]
+      height: [0,9,14,19,26,25,24,21,0]
+      texture: [2.9,2.9,3.9,63,10,11,63,3.9]
+      propeller: false
+    cockpit:
+      section_segments: 8
+      offset:
+        x: 0
+        y: -42
+        z: 18
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-11,4,25,34,42]
+        z: [0.8,0.5,1.5,4,8]
+      width: [0,8,12,10.4,0]
+      height: [0,5,10,8,0]
+      texture: [4,9,9,4]
+    enginesInner:
+      section_segments: 10
+      offset:
+        x: 38
+        y: 26
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0]
+        y: [-14,-13,-10,-4,66,79,66]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,5,10,12,16,14,0]
+      height: [0,6,11,13,20,15,0]
+      texture: [2,12,63,10,13,17]
+      propeller: true
+    enginesOuter:
+      section_segments: 10
+      offset:
+        x: 75
+        y: 26
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0]
+        y: [-14,-13,-10,-4,66,79,66]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,5,10,12,16,14,0]
+      height: [0,6,11,13,20,15,0]
+      texture: [2,12,63,11,13,17]
+      propeller: true
+    cannonTop:
+      section_segments: 6
+      offset:
+        x: 56.5
+        y: 21
+        z: 7
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-55,-60,-22,-14,27,60,68]
+        z: [0,0,0,0,0,0,-7]
+      width: [0,4,7,9,10,8,0]
+      height: [0,3,7,8,9,8,0]
+      texture: [16.9,2.9,12,3.9,63,3.9]
+      laser:
+        damage: [10,14]
+        rate: 5
+        type: 1
+        speed: [140,180]
+        recoil: 10
+    cannonBottom:
+      section_segments: 6
+      offset:
+        x: 56.5
+        y: 21
+        z: -7
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-55,-60,-22,-14,27,60,68]
+        z: [0,0,0,0,0,0,7]
+      width: [0,4,7,9,10,8,0]
+      height: [0,3,7,8,9,8,0]
+      texture: [16.9,2.9,12,3.9,63,3.9]
+      laser:
+        damage: [10,14]
+        rate: 5
+        type: 1
+        speed: [140,180]
+        recoil: 10
+    topV8Base2:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 9
+        z: -69
+      position:
+        x: [0,0,0,0,0]
+        y: [0,0,20,20,18]
+        z: [0,0,0,0,0]
+      width: [0,16,16,14,0]
+      height: [0,16,16,14,0]
+      texture: [2,12,63,17]
+      vertical: true
+  wings:
+    main:
+      doubleside: true
+      offset:
+        x: 18
+        y: 68
+        z: 0
+      length: [70,2,4,16]
+      width: [62,50,172,174,40]
+      angle: [0,0,0,0,0]
+      position: [-12,-12,-24,-20,28]
+      texture: [4,4,63,3]
+      bump:
+        position: 40
+        size: 12
+    secondaryTop:
+      doubleside: true
+      offset:
+        x: 56.5
+        y: 53
+        z: 6
+      length: [0,50]
+      width: [0,56,24]
+      angle: [0,90]
+      position: [0,0,16]
+      texture: [4]
+      bump:
+        position: 10
+        size: 10
+    secondaryBottom:
+      doubleside: true
+      offset:
+        x: 56.5
+        y: 53
+        z: -6
+      length: [0,-50]
+      width: [0,56,24]
+      angle: [0,90]
+      position: [0,0,16]
+      texture: [63]
+      bump:
+        position: 10
+        size: -10
