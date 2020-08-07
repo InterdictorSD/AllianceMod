@@ -88,6 +88,7 @@ return model =
         damage: [10,14]
         rate: 5
         type: 1
+        number: 1
         speed: [140,180]
         recoil: 10
     cannonBottom:
@@ -107,6 +108,7 @@ return model =
         damage: [10,14]
         rate: 5
         type: 1
+        number: 1
         speed: [140,180]
         recoil: 10
     topV8Base2:
