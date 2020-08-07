@@ -124,6 +124,7 @@ model =
         damage: [25,32]
         rate: 1.5
         type: 2
+        recoil: 25
         speed: [140,165]
         number: 1
     topV8Base2:
