@@ -1,0 +1,186 @@
+Array::mult = (m) -> @map (v) -> v*m
+Array::add = (m) -> @map (v) -> v+m
+for key, value of []
+  delete Array::[key]
+  Object.defineProperty Array::, key,
+    value: value
+    configurable: true
+    enumerable: false
+addPropulsorGun = (n, xpos, ypos, zpos, size) ->
+  model.bodies['mainGunBase'+n] =
+      section_segments: 12
+      offset:
+        x: xpos
+        y: ypos+mainypos
+        z: zpos
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-10,-10,-15,0,30,50,62,50].mult(size)
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,4.5,9,13,13,10,7,0].mult(size)
+      height: [0,5,10,15,13,12,8,0].mult(size)
+      texture: [4,13,3,63,4,4,17]
+      propeller: true
+  model.bodies['mainGunRail'+n] =
+      section_segments: 12
+      offset:
+        x: xpos
+        y: ypos+mainypos
+        z: zpos
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-80,-80,-25,0,30,50,62,50].add(-30).mult(size)
+        z: [0,0,0,0,0,0,0,0,0].add(10*size)
+      width: [0,2,5,9,10,6,5,0].mult(size)
+      height: [0,2,6,11,13,10,6,0].mult(size)
+      texture: [1]
+
+
+
+elementamount=250
+
+minxpos = 0
+maxxpos = 16
+xposArray = []
+k=0
+loop
+  xposArray[k] = Math.random() * (maxxpos - minxpos) + minxpos
+  k = k+1
+  if k+1 == elementamount then break
+
+mainypos = 10
+model =
+  name: 'Legion Fighter'
+  level: 1
+  model: 1
+  size: 1
+  specs:
+    shield:
+      capacity: [150,200]
+      reload: [3,5]
+    generator:
+      capacity: [70,100]
+      reload: [19,26]
+    ship:
+      mass: 110
+      speed: [135,150]
+      rotation: [50,90]
+      acceleration: [90,125]
+  bodies:
+    main:
+      section_segments: 8
+      offset:
+        x: 0
+        y: -20+mainypos
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0]
+        y: [-86,-72,-66,-24,-6,31,98,124,131]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,11,12.8,23,26,30,27,19,0]
+      height: [0,10,12,17,20,24,21,16,0]
+      texture: [1,63,2,63,4,10,11,1]
+    cockpit:
+      section_segments: 8
+      offset:
+        x: 0
+        y: -57+mainypos
+        z: 12
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-19,-2,20,30,50]
+        z: [0,0,2,3,8]
+      width: [0,9,14,13,0]
+      height: [0,12,14,12,0]
+      texture: [63,9,9,63]
+    side:
+      section_segments: 8
+      offset:
+        x: 52
+        y: 0+mainypos
+        z: 0
+      position:
+        x: [0,0,0,0,0]
+        y: [-33,-19,28,94,86]
+        z: [0,0,0,0,0]
+      width: [0,11,19.5,15,0]
+      height: [0,12,21,14,0]
+      texture: [3,63,11,17]
+      propeller: true
+    cannons:
+      section_segments: [0,45,90,135,180,225,270,315].add(22.5)
+      offset:
+        x: 65
+        y: -14+mainypos
+        z: 0
+      position:
+        x: [0,0,2,4,-9]
+        y: [-50,-54,28,64,86]
+        z: [0,0,0,0,0]
+      width: [0,4,7,10,0]
+      height: [0,3,8,10,0]
+      texture: [17,4,63,3]
+      laser:
+        damage: [25,32]
+        rate: 1.5
+        type: 2
+        speed: [140,165]
+        number: 1
+    topV8Base2:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 5
+        z: -62-mainypos
+      position:
+        x: [0,0,0,0,0]
+        y: [0,0,20,20,18]
+        z: [0,0,0,0,0]
+      width: [0,16,16,14,0]
+      height: [0,16,16,14,0]
+      texture: [2,12,63,17]
+      vertical: true
+  wings:
+    main:
+      doubleside: true
+      offset:
+        x: 20
+        y: 53+mainypos
+        z: 0
+      length: [0,80,20]
+      width: [0,60,40,26]
+      angle: [0,0,0]
+      position: [0,0,6,6]
+      bump:
+        position: 22
+        size: 9
+      texture: [4,4,2]
+    secondaryUpper:
+      doubleside: true
+      offset:
+        x: 63
+        y: 62+mainypos
+        z: 9
+      length: [0,39]
+      width: [0,40,22]
+      angle: [0,30]
+      position: [0,0,7]
+      bump:
+        position: 22
+        size: 9
+      texture: [63]
+    secondaryLower:
+      doubleside: true
+      offset:
+        x: 63
+        y: 62+mainypos
+        z: -9
+      length: [0,39]
+      width: [0,40,22]
+      angle: [0,-30]
+      position: [0,0,7]
+      bump:
+        position: 22
+        size: 9
+      texture: [63]
+return model;
