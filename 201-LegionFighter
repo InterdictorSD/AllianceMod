@@ -51,7 +51,7 @@ loop
 mainypos = 10
 model =
   name: 'Legion Fighter'
-  level: 1
+  level: 2
   model: 1
   size: 1
   specs:
