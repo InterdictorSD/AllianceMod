@@ -1,20 +1,20 @@
 return model =
   name: "Legion Bomber"
   level: 3
-  model: 1
-  size: 1.5
+  model: 2
+  size: 1.57
   specs:
     shield:
-      capacity: [145,180]
-      reload: [4,6]
+      capacity: [180,240]
+      reload: [3,5.5]
     generator:
-      capacity: [80,110]
-      reload: [24,35]
+      capacity: [100,140]
+      reload: [27,40]
     ship:
-      mass: 120
-      speed: [135,150]
-      rotation: [80,130]
-      acceleration: [100,150]
+      mass: 180
+      speed: [122,136]
+      rotation: [50,80]
+      acceleration: [45,90]
   bodies:
     main:
       section_segments: 9
@@ -98,6 +98,12 @@ return model =
       width: [0,3,5,8,4,0]
       height: [0,3,7,9,8,0]
       texture: [16.9,2.9,3.9,63,3.9]
+      laser:
+        damage: [12,18]
+        rate: 4
+        type: 1
+        speed: [110,145]
+        number: 1
     cannonEng:
       section_segments: 6
       offset:
@@ -111,6 +117,12 @@ return model =
       width: [0,3,5,8,4,0]
       height: [0,3,7,9,8,0]
       texture: [16.9,2.9,3.9,63,3.9]
+      laser:
+        damage: [12,18]
+        rate: 4
+        type: 1
+        speed: [110,145]
+        number: 1
   wings:
     main:
       doubleside: true
