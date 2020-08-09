@@ -1,0 +1,142 @@
+return model =
+  name: "Legion Bomber"
+  level: 3
+  model: 1
+  size: 1.5
+  specs:
+    shield:
+      capacity: [145,180]
+      reload: [4,6]
+    generator:
+      capacity: [80,110]
+      reload: [24,35]
+    ship:
+      mass: 120
+      speed: [135,150]
+      rotation: [80,130]
+      acceleration: [100,150]
+  bodies:
+    main:
+      section_segments: 9
+      offset:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-116,-112,-99,-82,0,92,104,110]
+        z: [3,1,0,0,0,0,0,0]
+      width: [0,10,16,20,29.6,27,21,0]
+      height: [0,9,14,19,26,25,24,0]
+      texture: [3.9,3.9,63,11,10,63,3.9]
+      propeller: false
+    cockpit:
+      section_segments: 8
+      offset:
+        x: 0
+        y: -59
+        z: 18
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-11,4,25,34,42]
+        z: [1.8,0.8,1.5,4,8]
+      width: [0,8,12,10.4,0]
+      height: [0,8,10,8,0]
+      texture: [63,9,9,63]
+    enginesInner:
+      section_segments: 12
+      offset:
+        x: 43
+        y: 26
+        z: 0
+      position:
+        x: [-2,-2,-2,-2,0,0,0,0,0,0]
+        y: [-17,-15,-10,-4,66,72,84,76]
+        z: [0,0,0,0,0,0,0,0,0,0]
+      width: [0,6,11,14,21,18,14,0]
+      height: [0,8,14,17,25,23,15,0]
+      texture: [4,4,63,11,63,12,17]
+      propeller: true
+    enginesOuter:
+      section_segments: 10
+      offset:
+        x: 106
+        y: 34
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0]
+        y: [-14,-13,-10,0,62,74,70]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,5,8,12,16,12,0]
+      height: [0,6,9,13,20,14,0]
+      texture: [4,4,63,10,63,16.9]
+      propeller: true
+    topV8Base2:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 9
+        z: -44
+      position:
+        x: [0,0,0,0,0]
+        y: [0,0,20,20,18]
+        z: [0,0,0,0,0]
+      width: [0,16,16,14,0]
+      height: [0,16,16,14,0]
+      texture: [2,12,63,17]
+      vertical: true
+    cannon:
+      section_segments: 6
+      offset:
+        x: 27
+        y: -91
+        z: -8
+      position:
+        x: [0,0,0,0,-1,-4]
+        y: [-55,-60,-14,37,60,68]
+        z: [0,0,0,0,0,0]
+      width: [0,3,5,8,4,0]
+      height: [0,3,7,9,8,0]
+      texture: [16.9,2.9,3.9,63,3.9]
+    cannonEng:
+      section_segments: 6
+      offset:
+        x: 59
+        y: 10
+        z: -9
+      position:
+        x: [0,0,0,0,0,0]
+        y: [-55,-60,-14,37,60,68]
+        z: [0,0,0,0,0,0]
+      width: [0,3,5,8,4,0]
+      height: [0,3,7,9,8,0]
+      texture: [16.9,2.9,3.9,63,3.9]
+  wings:
+    main:
+      doubleside: true
+      offset:
+        x: 45
+        y: 72
+        z: 0
+      length: [70]
+      width: [72,45]
+      angle: [0]
+      position: [-5,8]
+      texture: [8.25]
+      bump:
+        position: 0
+        size: 10
+    front:
+      doubleside: true
+      offset:
+        x: 17
+        y: -60
+        z: 6
+      length: [14,2,2,10]
+      width: [27,20,92,94,8]
+      angle: [-30,0,0,0,0]
+      position: [0,0,-20,-20,0]
+      texture: [4,4,63,3]
+      bump:
+        position: 30
+        size: 14
