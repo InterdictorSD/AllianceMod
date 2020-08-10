@@ -93,14 +93,14 @@ model =
   name: 'Legion Battlecruiser'
   level: 6
   model: 1
-  size: 3
+  size: 4.5
   specs:
     shield:
       capacity: [550,650]
       reload: [7,10]
     generator:
       capacity: [250,400]
-      reload: [70,95]
+      reload: [80,105]
     ship:
       mass: 600
       speed: [70,85]
