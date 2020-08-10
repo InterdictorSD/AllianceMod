@@ -2,7 +2,7 @@ return model =
   name: "Legion Bomber"
   level: 3
   model: 2
-  size: 1.57
+  size: 1.35
   specs:
     shield:
       capacity: [180,240]
