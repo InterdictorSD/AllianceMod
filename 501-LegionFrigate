@@ -93,7 +93,7 @@ model =
   name: 'Legion Frigate'
   level: 5
   model: 1
-  size: 3.7
+  size: 3.3
   specs:
     shield:
       capacity: [335,500]
