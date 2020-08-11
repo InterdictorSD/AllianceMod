@@ -86,26 +86,26 @@ addTurret = (n, xpos, ypos, zpos, size, angle) ->
       texture: [2,12,63,17]
       vertical: true
 
-mainypos = 0
-engineRadius = 0.75
+mainypos = 12
+engineRadius = 0.8
 
 model =
-  name: 'Legion Battlecruiser'
-  level: 6
+  name: 'Legion Frigate'
+  level: 5
   model: 1
-  size: 4.5
+  size: 3.7
   specs:
     shield:
-      capacity: [550,650]
-      reload: [7,10]
+      capacity: [335,500]
+      reload: [6,9]
     generator:
-      capacity: [250,400]
-      reload: [80,105]
+      capacity: [160,210]
+      reload: [60,80]
     ship:
-      mass: 600
-      speed: [70,85]
-      rotation: [30,40]
-      acceleration: [25,50]
+      mass: 480
+      speed: [83,98]
+      rotation: [35,55]
+      acceleration: [40,60]
   bodies:
     mainBase:
       section_segments: 8
@@ -119,7 +119,7 @@ model =
         z: [0,0,0,0,0,0,0,0]
       width: [0,16,19,30,32,40,34,0]
       height: [0,12,14,22,28,26,21,0]
-      texture: [4,4,63,13,13,18,4]
+      texture: [4,2,63,13,13,18,4]
       propeller: true
     mainTop:
       section_segments: 8
@@ -129,38 +129,25 @@ model =
         z: 17
       position:
         x: [0,0,0,0,0,0,0]
-        y: [-80,-74,-28,0,30,74,82]
+        y: [-84,-74,-28,0,30,62,86]
         z: [0,-1,0,0,0,0,0]
       width: [0,11,19,20,23,19,0]
       height: [0,8,14,18,22,19,0]
-      texture: [4,18,4,63,3,3]
+      texture: [2,18,4,63,3,2]
       propeller: true
     cockpit:
-      section_segments: 8
-      offset:
-        x: 0
-        y: -29+mainypos
-        z: 24
-      position:
-        x: [0,0,0,0,0,0]
-        y: [-6,0,20,30,40,64]
-        z: [0.8,0,2,1,9,12]
-      width: [0,5,10,10,3,2]
-      height: [0,5,10,11,4,3]
-      texture: [63,9,9,63,13]
-    cockpitStripe:
       section_segments: 8
       offset:
         x: 0.01
         y: -29+mainypos
         z: 24
       position:
-        x: [0,10]
-        y: [40,64]
-        z: [9,12]
-      width: [3,2]
-      height: [4,3]
-      texture: [13]
+        x: [0,0,0,0,4,4]
+        y: [-6,0,20,30,40,64]
+        z: [0.8,0,2,1,9,12]
+      width: [0,5,10,10,3,2]
+      height: [0,5,10,11,4,3]
+      texture: [63,9,9,63,13]
     turretBase:
       section_segments: 13
       offset:
@@ -171,7 +158,7 @@ model =
         x: [0,0,0,0]
         y: [-35,-10,50,105]
         z: [0,0,0,0]
-      width: [0,60,80,0]
+      width: [0,76,80,0]
       height: [0,19,23,0]
       texture: [4,18,63]
     topV8Base2:
@@ -191,8 +178,8 @@ model =
     enginesInner:
       section_segments: 10
       offset:
-        x: 0
-        y: 59+mainypos
+        x: 41
+        y: 49+mainypos
         z: 0
       position:
         x: [0,0,0,0,0,0,0,0,0]
@@ -200,18 +187,91 @@ model =
         z: [0,0,0,0,0,0,0,0,0]
       width: [0,5,8,12,16,12,0].mult(engineRadius)
       height: [0,6,9,13,20,14,0].mult(engineRadius)
-      texture: [4,4,63,18,63,16.9]
+      texture: [4,4,63,13,63,16.9]
       propeller: true
+    enginesInner2:
+      section_segments: 10
+      offset:
+        x: 14
+        y: 58+mainypos
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0]
+        y: [-14,-13,-10,0,62,78,72]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,5,8,12,16,12,0].mult(engineRadius)
+      height: [0,6,9,13,20,14,0].mult(engineRadius)
+      texture: [4,4,63,13,63,16.9]
+      propeller: true
+    bigSideGuns:
+      section_segments: 6
+      offset:
+        x: 70
+        y: 22+mainypos
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,-2,-8]
+        y: [-80,-90,-80,-35,-12,52,64,80]
+        z: [0,0,0,0,0,0,0,0]
+      width: [0,7,8,12,20,20,20,0].mult(0.7)
+      height: [0,7,8,12,20,20,16,0].mult(0.7)
+      texture: [16.9,1.9,3.9,63,2.9,63,1.9]
+      angle: 0.65
+      laser:
+        damage: [30,40]
+        rate: 1
+        type: 2
+        speed: [130,155]
+        number: 1
+        angle: 0
+        error: 0
+    smolSideGuns:
+      section_segments: 8
+      offset:
+        x: 86
+        y: 22+mainypos
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,-5]
+        y: [-60,-70,-66,-35,-12,2,44,60]
+        z: [0,0,0,0,0,0,0,0]
+      width: [0,7,8,12,20,20,20,0].mult(0.35)
+      height: [0,7,8,12,20,20,16,0].mult(0.4)
+      texture: [16.9,63,2.9,3.9,63,63,3.9]
+      angle: 0.65
+      laser:
+        damage: [5,7]
+        rate: 6
+        type: 1
+        speed: [150,180]
+        number: 1
+        angle: 0
+        error: 2
+  wings:
+    main:
+      doubleside: true
+      offset:
+        x: 80
+        y: 20+mainypos
+        z: 0
+      length: [10,0,18]
+      width: [40,30,128,12]
+      angle: [0,0,0]
+      position: [30,30,0,37]
+      texture: [63,3,2]
+      bump:
+        position: 20
+        size: 15
 
 
-###
+
+
 i=0
 loop
-  addTurret(i,37+i*4,40+i*14,18,0.3,-40)
-  addTurret(i+2,22+i*4,40+i*14,21,0.3,-40)
+  addTurret(i,33+i*19,36+i*19,23-i*2,0.45,0)
   i = i+1
-  if i == 4 then break
-###
+  if i == 2 then break
+
 
 
 
