@@ -1,0 +1,226 @@
+Array::mult = (m) -> @map (v) -> v*m
+Array::add = (m) -> @map (v) -> v+m
+for key, value of []
+  delete Array::[key]
+  Object.defineProperty Array::, key,
+    value: value
+    configurable: true
+    enumerable: false
+
+
+mainypos=-14
+mainzpos=0
+model =
+  name: 'Alliance Interceptor'
+  level: 3
+  model: 3
+  size: 0.85
+  specs:
+    shield:
+      capacity: [140,175]
+      reload: [3,6]
+    generator:
+      capacity: [60,90]
+      reload: [25,38]
+    ship:
+      mass: 125
+      speed: [130,150]
+      rotation: [70,110]
+      acceleration: [110,160]
+  bodies:
+#main
+    cannons:
+      section_segments: 8
+      offset:
+        x: 69
+        y: 50+mainypos
+        z: -10+mainzpos
+      position:
+        x: [1,1,0,5,6]
+        y: [-70,-75,20,60,70]
+        z: [0,0,0,0,0]
+      width: [0,5,12,5,0]
+      height: [0,5,7,5,0]
+      texture: [17,4,3]
+      laser:
+        damage: [7,11]
+        rate: 6
+        type: 1
+        speed: [134,172]
+        number: 1
+        recoil: 3
+        angle: 0
+        error: 2.5
+    mainstructure:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 20+mainypos
+        z: -7+mainzpos
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0,0,0,0]
+        y: [-147,-124,-111,-30,-10,40,60,82,180,200,200,180,180]
+        z: [0,0,0,0,0,0,0,0,0,0,0,0,0]
+      width: [0,18,26,41,29,37,44,52,46,36,32,16,0]
+      height: [0,11,14,22,20,26,34,37,30,20,16,8,0]
+      texture: [3,63,63,4,8,13,63,18,3,17,16,17]
+      propeller: true
+    cockpit:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 5+mainypos
+        z: 8+mainzpos
+      position:
+        x: [0,0,0,0,0]
+        y: [-84,-66,-35,-20,-14]
+        z: [0,0,3,3,1]
+      width: [0,11,15,7,0]
+      height: [0,10,8,7,0]
+      texture: [7,9,4]
+    propeller:
+      section_segments: 10
+      offset:
+        x: 58
+        y: 192+mainypos
+        z: -19.5+mainzpos
+      position:
+        x: [0,0,0,0]
+        y: [-78,-61,15,10]
+        z: [0,0,0,0]
+      width: [0,14,17,0]
+      height: [0,13,14,0]
+      texture: [4,18,16.9]
+      propeller: true
+    sideEngine:
+      section_segments: 8
+      offset:
+        x: 130
+        y: 208.5+mainypos
+        z: -10.5+mainzpos
+      position:
+        x: [-32,-16,-8,-4,-2,-0.5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        y: [-59,-54,-49,-46,-44,-41,-38,-25,-25,-12,-12,-7,-7,2,2,7,7,16,16,21,21,34,34,32,32]
+        z: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+      width: [10,9,8,7,6,6,5.5,7,11,11,12,12,11,11,12,12,11,11,12,12,11,11,8,8,0].mult(0.6)
+      height: [5,5,5,5,5,5,5.5,7,11,11,12,12,11,11,12,12,11,11,12,12,11,11,8,8,0].mult(0.6)
+      texture: [3,3,3,3,3,3,3,17,4,17,63,17,4,17,63,17,4,17,63,17,4,17,4,16.9]
+      propeller: true
+    hex:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 49+mainzpos
+        z: -179-mainypos
+      position:
+        x: [0,0,0,0,0,0]
+        y: [-40,-40,-20,-20,-22,-22]
+        z: [0,0,0,0,0,0]
+      width: [0,18,18,13,9,0]
+      height: [0,18,18,13,9,0]
+      texture: [1.9,1.9,16.9,2.9,11.9]
+      vertical: true
+    hex2:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 51.5+mainzpos
+        z: -126-mainypos
+      position:
+        x: [0,0,0,0,0,0]
+        y: [-40,-40,-20,-20,-22,-22]
+        z: [0,0,0,0,0,0]
+      width: [0,18,18,13,9,0]
+      height: [0,18,18,13,9,0]
+      texture: [1.9,1.9,16.9,2.9,11.9]
+      vertical: true
+    tex:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 20+mainypos
+        z: -8+mainzpos
+      position:
+        x: [0,0,0,0]
+        y: [-147,-125,-111,-30]
+        z: [1,0,0,0]
+      width: [0,21,28,43]
+      height: [0,12,15,22]
+      texture: [2,3,18]
+    ringH17:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 130+mainypos
+        z: 20+mainzpos
+      position:
+        x: [0,0,0,0]
+        y: [11,11,37,37]
+        z: [2,2,0,0]
+      width: [0,7,7,0]
+      height: [0,8,8,0]
+      texture: [63]
+
+
+
+#wings
+  wings:
+    main:
+      doubleside: true
+      offset:
+        x: 34
+        y: 189+mainypos
+        z: 0+mainzpos
+      length: [40,4,8,32]
+      width: [34,30,122,115,30].mult(2)
+      angle: [-15,0,0,0,0]
+      position: [-12,-12,-24,-20,12].mult(2)
+      texture: [2,2,63,4]
+      bump:
+        position: 32
+        size: 15
+    top:
+      doubleside: true
+      offset:
+        x: 122
+        y: 212+mainypos
+        z: -9+mainzpos
+      length: [54]
+      width: [58,26]
+      angle: [40]
+      position: [0,0]
+      texture: [4]
+      bump:
+        position: 0
+        size: 10
+    bottom:
+      doubleside: true
+      offset:
+        x: 122
+        y: 212+mainypos
+        z: -13+mainzpos
+      length: [54]
+      width: [58,26]
+      angle: [-40]
+      position: [0,0]
+      texture: [4]
+      bump:
+        position: 0
+        size: 10
+    side:
+      doubleside: true
+      offset:
+        x: 105
+        y: 204+mainypos
+        z: -10+mainzpos
+      length: [0,0,5,17]
+      width: [0,0,142,135,30]
+      angle: [-15,0,0,0,0]
+      position: [-12,-12,-24,-20,17]
+      texture: [17,17,63,3]
+      bump:
+        position: 32
+        size: 14
+
+
+return model;
