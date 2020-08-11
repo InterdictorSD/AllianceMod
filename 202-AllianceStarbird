@@ -1,0 +1,159 @@
+Array::mult = (m) -> @map (v) -> v*m
+Array::add = (m) -> @map (v) -> v+m
+for key, value of []
+  delete Array::[key]
+  Object.defineProperty Array::, key,
+    value: value
+    configurable: true
+    enumerable: false
+
+model =
+  name: 'Alliance Starbird'
+  level: 2
+  model: 2
+  size: 1
+  specs:
+    shield:
+      capacity: [120,160]
+      reload: [3,6]
+    generator:
+      capacity: [65,80]
+      reload: [22,31]
+    ship:
+      mass: 100
+      speed: [138,152]
+      rotation: [80,130]
+      acceleration: [100,140]
+  bodies:
+    main:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-100,-85,-62.5,-40,20,90,100,90]
+        z: [0,0,0,0,0,0,0,0]
+      width: [0,12,19,25,34,27,18,0]
+      height: [0,11,15,20,25,25,22,0]
+      texture: [0.9,63,63,10,11,1.9,17]
+      propeller: true
+    cockpit:
+      section_segments: 8
+      offset:
+        x: 0
+        y: -60
+        z: 13
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-18,-5,20,30,40]
+        z: [-0.5,-3,0,0,9]
+      width: [0,7,14,12,0]
+      height: [0,7,14,12,0]
+      texture: [4,9,4,9]
+    side:
+      section_segments: 12
+      offset:
+        x: 44
+        y: 90
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-80,-70,-50,-15,-10,0,40,35]
+        z: [0,0,0,0,0,0,0,0]
+      width: [0,12,16,21,12,19,10,0]
+      height: [0,14,18,21,16,18,10,0]
+      texture: [3,13,11,2,63,8,17]
+      propeller: true
+      angle: 2
+    cannons:
+      section_segments: 8
+      offset:
+        x: 26
+        y: -30
+        z: 0
+      position:
+        x: [0,0,3,0,-4]
+        y: [-30,-35,20,50,55]
+        z: [0,0,0,0,0]
+      width: [0,5,9,5,0]
+      height: [0,5,5,5,0]
+      texture: [17,3,63,63]
+      angle: 0.5
+      laser:
+        damage: [13,18]
+        rate: 1.3
+        type: 2
+        speed: [120,160]
+        number: 1
+        angle: 0
+        recoil: 20
+        error: 1.5
+    mainCannon:
+      section_segments: 8
+      offset:
+        x: 0
+        y: -70
+        z: -15
+      position:
+        x: [0,0,0,0,0]
+        y: [-30,-35,20,35,40]
+        z: [0,0,0,5,5]
+      width: [0,7,10,5,0]
+      height: [0,7,12,5,0]
+      texture: [17,3,2,2]
+      angle: 0
+      laser:
+        damage: [6,7]
+        rate: 5
+        type: 1
+        speed: [130,165]
+        number: 1
+        recoil: 0
+        angle: 0
+        error: 4
+    reactorHex:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 7
+        z: -55
+      position:
+        x: [0,0,0,0,0]
+        y: [0,0,20,20,18]
+        z: [0,0,0,0,0]
+      width: [0,16,16,14,0].mult(1.2)
+      height: [0,16,16,14,0].mult(1.2)
+      texture: [2,12,63,16.9]
+      vertical: true
+  wings:
+    bottom:
+      doubleside: true
+      offset:
+        x: 54
+        y: 65
+        z: 0
+      length: [50]
+      width: [50,20]
+      angle: [-25]
+      position: [-20,10]
+      texture: [63]
+      bump:
+        position: 10
+        size: 10
+    top:
+      doubleside: true
+      offset:
+        x: 54
+        y: 65
+        z: 0
+      length: [50]
+      width: [50,20]
+      angle: [25]
+      position: [-20,10]
+      texture: [63]
+      bump:
+        position: 10
+        size: 10
+return model;
