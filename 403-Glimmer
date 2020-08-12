@@ -1,0 +1,149 @@
+Array::mult = (m) -> @map (v) -> v*m
+Array::add = (m) -> @map (v) -> v+m
+for key, value of []
+  delete Array::[key]
+  Object.defineProperty Array::, key,
+    value: value
+    configurable: true
+    enumerable: false
+
+model =
+  name: 'Glimmer'
+  level: 4
+  model: 3
+  size: 1.5
+  specs:
+    shield:
+      capacity: [200,295]
+      reload: [6,8]
+    generator:
+      capacity: [60,85]
+      reload: [37,52]
+    ship:
+      mass: 200
+      speed: [108,122]
+      rotation: [50,110]
+      acceleration: [90,130]
+  bodies:
+    main:
+      section_segments: 7
+      offset:
+        x: 0
+        y: 0
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-104,-96,-100,-85,-62.5,-40,20,55,70,60]
+        z: [0,0,0,0,0,0,0,0,0,0]
+      width: [0,2.5,3,8,16,19,26,22,20,0]
+      height: [0,2.5,3,9,14,16,22,20,18,0]
+      texture: [1.9,17,1.9,13,63,17.95,4,12,16.9]
+      propeller: true
+    cockpit:
+      section_segments: 8
+      offset:
+        x: 0
+        y: -60
+        z: 13
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-12,2,34,48,54]
+        z: [-1.4,-2,-1,1,6.2]
+      width: [0,7,11,7,0]
+      height: [0,7,11,9,0]
+      texture: [4,9,4,4]
+    sideThrusters:
+      section_segments: 8
+      offset:
+        x: 32
+        y: 40
+        z: 0
+      position:
+        x: [-12,-8,-4.5,-1,0,0,0]
+        y: [-50,-45,-20,0,20,30,20]
+        z: [0,0,0,0,0,0,0]
+      width: [0,6,9,11,11,8,0]
+      height: [0,6,9,11,11,8,0]
+      texture: [4,4,2,63,2,17]
+      propeller: true
+    topThruster:
+      section_segments: 9
+      offset:
+        x: 0
+        y: 51
+        z: 22
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-48,-41,-20,0,18,23,14]
+        z: [-3,-3,-2,-1,-1,0,0]
+      width: [0,6,9,11,11,8,0]
+      height: [0,6,9,11,11,8,0]
+      texture: [4,4,63,18,4,17]
+      propeller: true
+    mainCannon:
+      section_segments: 8
+      offset:
+        x: 15
+        y: -44
+        z: -15
+      position:
+        x: [0,0,0,0,0,-2,-3]
+        y: [-49,-52,-20,0,8,15,22]
+        z: [0,0,0,0,0,3,5]
+      width: [0,3,5,7,6,4,0]
+      height: [0,3,5,7,6,4,0]
+      texture: [17,13,63,4,2,4]
+      laser:
+        damage: [4,6]
+        rate: 8
+        type: 1
+        speed: [110,150]
+        number: 1
+        error: 8
+    topV8Base2:
+      section_segments: 6
+      offset:
+        x: 0
+        y: 5
+        z: 2
+      position:
+        x: [0,0,0,0,0]
+        y: [0,0,20,20,18]
+        z: [0,0,0,0,0]
+      width: [0,16,16,14,0].mult(0.8)
+      height: [0,16,16,14,0].mult(0.8)
+      texture: [2,12,63,16.9]
+      vertical: true
+  wings:
+    top:
+      doubleside: true
+      offset:
+        x: 12
+        y: 34
+        z: 0
+      length: [50]
+      width: [54,20]
+      angle: [50]
+      position: [0,24]
+      texture: [4]
+      bump:
+        position: 10
+        size: 15
+    main:
+      doubleside: true
+      offset:
+        x: 0
+        y: -45
+        z: 0
+      length: [70,14]
+      width: [75,40,22]
+      angle: [-20,-30]
+      position: [30,90,75]
+      texture: [18,63]
+      bump:
+        position: 10
+        size: 4
+        
+
+
+return model;
