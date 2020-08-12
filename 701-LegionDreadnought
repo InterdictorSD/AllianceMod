@@ -111,14 +111,14 @@ model =
   name: 'Legion Dreadnought'
   level: 7
   model: 1
-  size: 4.5
+  size: 4.8
   specs:
     shield:
       capacity: [850,850]
       reload: [14,14]
     generator:
       capacity: [600,600]
-      reload: [150,150]
+      reload: [180,180]
     ship:
       mass: 900
       speed: [75,75]
@@ -164,11 +164,24 @@ model =
       width: [0,37,60,72,66,0].mult(0.7)
       height: [0,30,33,38,26,0]
       texture: [63,4,18,12,3]
+    mainBPlateTop:
+      section_segments: 7
+      offset:
+        x: 0
+        y: 0+mainypos
+        z: 15
+      position:
+        x: [0,0,0,0,0]
+        y: [-7,15,62,112,130]
+        z: [20,1,2,0,-4]
+      width: [0,60,72,66,0].mult(0.5)
+      height: [0,33,38,26,0].mult(0.8)
+      texture: [3,63,8]
     topV8Base2:
       section_segments: 8
       offset:
         x: 0
-        y: 26
+        y: 29
         z: -67-mainypos
       position:
         x: [0,0,0,0,0]
@@ -222,16 +235,30 @@ model =
     enginesOuter:
       section_segments: 10
       offset:
-        x: 63
-        y: 69+mainypos
-        z: -4
+        x: 44
+        y: 29+mainypos
+        z: 23
       position:
-        x: [0,0,0,0,0,0,0,0,0]
-        y: [-14,-13,-10,0,62,78,72]
+        x: [-10,-8,-6,-4,0,0,0,0,0]
+        y: [-22,-17,-10,4,62,78,72]
         z: [0,0,0,0,0,0,0,0,0]
       width: [0,5,8,12,19,16,0].mult(engineRadius2)
       height: [0,6,9,13,20,16,0].mult(engineRadius2)
-      texture: [4,4,63,4,63,16.9]
+      texture: [4,4,63,3,63,16.9]
+      propeller: true
+    enginesOuter2:
+      section_segments: 10
+      offset:
+        x: 56
+        y: 38+mainypos
+        z: 23
+      position:
+        x: [-10,-8,-6,-4,0,0,0,0,0].mult(1.7)
+        y: [-22,-17,-10,4,62,78,72]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,5,8,12,19,16,0].mult(engineRadius2)
+      height: [0,6,9,13,20,16,0].mult(engineRadius2)
+      texture: [4,4,63,13,63,16.9]
       propeller: true
 
 
@@ -239,18 +266,10 @@ model =
 
 
 
-
 i=0
 loop
-  addTurret(i,43+i*2,7+i*14,23+i*0.4,0.3,-40)
-  addTurret(i+4,54-i*2,64.5+i*14,24-i*1.2,0.3,-90)
-  i = i+1
-  if i == 5 then break
-
-i=0
-loop
-  addSidegun(i,65+i*2,10+i*13,8,0.4,-90,4,[8,8])
-  addSidegun(i+4,75-i*1.2,66.5+i*13,7,0.4,-90,3,[8,8])
+  addSidegun(i,65+i*2,10+i*13,8,0.3,-90,4,[8,8])
+  addSidegun(i+4,75-i*1.2,66.5+i*13,7,0.3,-90,3,[8,8])
   i = i+1
   if i == 5 then break
 
