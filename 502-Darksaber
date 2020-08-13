@@ -243,6 +243,13 @@ model =
       width: [0,7,8,12,20,21,17,0].mult(0.7)
       height: [0,7,8,12,20,20,16,0].mult(0.7)
       texture: [16.9,63,12.9,3.9,63,3.9,2.9]
+      laser:
+        damage: [35,45]
+        rate: 0.8
+        type: 2
+        speed: [115,145]
+        number: 1
+        error: 2
     cannonTopCov:
       section_segments: 6
       offset:
@@ -269,6 +276,13 @@ model =
       width: [0,7,8,12,20,21,17,0].mult(0.7)
       height: [0,7,8,12,20,20,16,0].mult(0.7)
       texture: [16.9,63,12.9,3.9,63,3.9,2.9]
+      laser:
+        damage: [35,45]
+        rate: 0.8
+        type: 2
+        speed: [115,145]
+        number: 1
+        error: 2
     cannonBottomCov:
       section_segments: 6
       offset:
