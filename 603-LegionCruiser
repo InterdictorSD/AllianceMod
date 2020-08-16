@@ -1,0 +1,229 @@
+Array::mult = (m) -> @map (v) -> v*m
+Array::add = (m) -> @map (v) -> v+m
+for key, value of []
+  delete Array::[key]
+  Object.defineProperty Array::, key,
+    value: value
+    configurable: true
+    enumerable: false
+addSidegun = (n, xpos, ypos, zpos, size, angle, texture, damage) ->
+  model.bodies['sideGun'+n] =
+      section_segments: 12
+      offset:
+        x: xpos
+        y: ypos+mainypos
+        z: zpos
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-50,-54,-20,0,20,50,55].mult(size)
+        z: [0,0,0,0,0,0,0]
+      width: [0,5,10,10,15,7,0].mult(size)
+      height: [0,5,11,10,18,6,0].mult(size)
+      angle: angle
+      texture: [17,13,10,63,texture,texture]
+      laser:
+        damage: damage
+        rate: 5
+        type: 1
+        speed: [130,170]
+        number: 1
+        angle: 0
+        error: 2
+
+
+mainypos = -20
+engineRadius = 0.8
+
+model =
+  name: 'Legion Cruiser'
+  level: 6
+  model: 3
+  size: 3.8
+  specs:
+    shield:
+      capacity: [500,600]
+      reload: [8,11]
+    generator:
+      capacity: [220,345]
+      reload: [100,140]
+    ship:
+      mass: 650
+      speed: [65,80]
+      rotation: [21,37]
+      acceleration: [33,67]
+  bodies:
+    mainBase:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 30+mainypos
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-134,-122,-94,-50,22,43,93,101]
+        z: [0,0,0,0,0,0,0,0]
+      width: [0,15,24,32,34,40,32,0]
+      height: [0,11,19,24,28,26,22,0]
+      texture: [2,10,63,4,13,63]
+      propeller: true
+    mainTop:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 40+mainypos
+        z: 20
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-90,-60,-27,10,40,72,83]
+        z: [0,-1,0,0,0,0,0]
+      width: [0,16,20,23,22,13,0]
+      height: [0,12,16,20,21,14,0]
+      texture: [4,13,63,18,13,3]
+    mainTop2:
+      section_segments: 8
+      offset:
+        x: 0.01
+        y: 40+mainypos
+        z: 16
+      position:
+        x: [2,0,0,0,0,0,0]
+        y: [-90,-60,-27,10,40,72,83]
+        z: [1,-1,0,0,0,0,0]
+      width: [0,16,20,23,22,13,0].mult(1.4)
+      height: [0,12,16,20,21,14,0].mult(0.8)
+      texture: [4,13,63,18,13,3]
+    mainSides:
+      section_segments: 8
+      offset:
+        x: 25
+        y: 36+mainypos
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-90,-54,-28,10,40,72,83]
+        z: [0,0,0,0,0,0,0]
+      width: [0,16,19,20,22,13,0].mult(1.2)
+      height: [0,14,17,18,21,14,0]
+      texture: [2,63,13,18,13,3]
+    mainSides2:
+      section_segments: 8
+      offset:
+        x: 44
+        y: 76+mainypos
+        z: 0
+      position:
+        x: [0,0,0,0,1,0,0]
+        y: [-90,-54,-28,-20,10,12,13]
+        z: [0,0,0,0,0,0,0]
+      width: [0,16,19,20,22,13,0]
+      height: [0,14,18,19,24,14,0].mult(0.8)
+      texture: [1,11,63,4,13,3]
+    cockpit:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 19+mainypos
+        z: 35
+      position:
+        x: [0,0,0,0,0]
+        y: [-12,2,22,33,49].mult(0.66)
+        z: [0,0,0,0,3]
+      width: [0,8,11.4,12,0].mult(0.8)
+      height: [0,7,8.3,9,0].mult(0.8)
+      texture: [7,9,9,7]
+    reactor:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 20
+        z: -102.4-mainypos
+      position:
+        x: [0,0,0,0,0]
+        y: [0,0,20,20,18]
+        z: [0,0,0,0,0]
+      width: [0,16,16,14,0]
+      height: [0,16,16,14,0]
+      texture: [2,13,63,17]
+      vertical: true
+    engines1:
+      section_segments: 8
+      offset:
+        x: 43
+        y: 74+mainypos
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0]
+        y: [-9,-2,14,34,69,78,72]
+        z: [-13,-8,-5,-3,0,0,0,0,0]
+      width: [0,6,12,14,16,14,0].mult(engineRadius)
+      height: [0,7,12,14,16,14,0].mult(engineRadius)
+      texture: [4,4,63,10,4,17]
+      propeller: true
+    engines2:
+      section_segments: 8
+      offset:
+        x: 14
+        y: 82+mainypos
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0,0]
+        y: [-9,-2,14,34,69,78,72]
+        z: [-13,-8,-5,-3,0,0,0,0,0]
+      width: [0,6,12,14,16,14,0].mult(engineRadius)
+      height: [0,7,12,14,16,14,0].mult(engineRadius)
+      texture: [4,4,63,10,4,17]
+      propeller: true
+    mainEnd:
+      section_segments: 16
+      offset:
+        x: 0
+        y: 84+mainypos
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-60,-40,-12,0,40,50,40]
+        z: [0,0,0,0,0,0,0]
+      width: [0,60,64,83,79,33,0]
+      height: [0,20,24,29,27,13,0]
+      texture: [13,10,63,11,3,12]
+    cannonS2:
+      section_segments: 8
+      offset:
+        x: 71
+        y: 86+mainypos
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-80,-100,-80,-15,-2,12,22,26]
+        z: [0,0,0,0,0,0,0,0]
+      width: [0,5,8,12,18,15,13,0].mult(0.5)
+      height: [0,5,8,12,20,10,16,0].mult(0.42)
+      texture: [17,63,13,3,10,4]
+      angle: 1
+      laser:
+        damage: [50,60]
+        rate: 1
+        type: 2
+        speed: [145,190]
+        number: 1
+        error: 0
+
+addSidegun(0,32,64,20,0.43,-90,4,[3,5])
+addSidegun(1,34,52,20,0.43,-90,4,[3,5])
+addSidegun(2,35,40,20,0.43,-90,4,[3,5])
+addSidegun(3,33,28,19,0.43,-90,4,[3,5])
+
+addSidegun(4,28,8,16,0.43,-60,4,[3,5])
+addSidegun(5,24,-20,16,0.43,-40,4,[3,5])
+addSidegun(6,26,-4,16,0.43,-50,4,[3,5])
+
+addSidegun(7,23,106,30,0.43,-120,4,[3,5])
+addSidegun(8,16,120,30,0.43,-150,4,[3,5])
+
+
+
+
+
+
+
+return model;
