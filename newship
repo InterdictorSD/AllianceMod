@@ -1,0 +1,140 @@
+Array::mult = (m) -> @map (v) -> v*m
+Array::add = (m) -> @map (v) -> v+m
+for key, value of []
+  delete Array::[key]
+  Object.defineProperty Array::, key,
+    value: value
+    configurable: true
+    enumerable: false
+addSidegun = (n, xpos, ypos, zpos, size, angle, texture, damage) ->
+  model.bodies['sideGun'+n] =
+      section_segments: 12
+      offset:
+        x: xpos
+        y: ypos+mainypos
+        z: zpos
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-50,-54,-20,0,20,50,55].mult(size)
+        z: [0,0,0,0,0,0,0]
+      width: [0,5,10,10,15,7,0].mult(size)
+      height: [0,5,11,10,18,6,0].mult(size)
+      angle: angle
+      texture: [17,13,10,63,texture,texture]
+      laser:
+        damage: damage
+        rate: 5
+        type: 1
+        speed: [130,170]
+        number: 1
+        angle: 0
+        error: 2
+
+bridgeZ = 0
+mainypos = -60
+engineRadius = 0.8
+
+model =
+  name: 'Legion Cruiser'
+  level: 6
+  model: 3
+  size: 3.8
+  specs:
+    shield:
+      capacity: [500,600]
+      reload: [8,11]
+    generator:
+      capacity: [220,345]
+      reload: [100,140]
+    ship:
+      mass: 650
+      speed: [65,80]
+      rotation: [21,37]
+      acceleration: [33,67]
+  bodies:
+    mainBase:
+      section_segments: 8
+      offset:
+        x: 0
+        y: 80+mainypos
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-134,-122,-94,-50,22,43,93,101]
+        z: [0,0,0,0,0,0,0,0]
+      width: [0,15,24,32,34,40,32,0]
+      height: [0,11,19,24,28,26,22,0]
+      texture: [2,10,63,4,13,63]
+      propeller: true
+    mainSides:
+      section_segments: 8
+      offset:
+        x: 825
+        y: 36+mainypos
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-90,-54,-28,10,40,72,83]
+        z: [0,0,0,0,0,0,0]
+      width: [0,16,19,20,22,13,0]
+      height: [0,14,17,18,21,14,0]
+      texture: [2,63,13,18,13,3]
+
+
+
+
+  wings:
+    bridgeTop:
+      doubleside: true
+      offset:
+        x: 0
+        y: 85+mainypos
+        z: 70+bridgeZ
+      length: [0,14]
+      width: [0,40,8]
+      angle: [0,90]
+      position: [0,0,12]
+      texture: [4]
+      bump:
+        position: 20
+        size: 30
+    bridgeMain:
+      doubleside: true
+      offset:
+        x: 0
+        y: 82+mainypos
+        z: 57+bridgeZ
+      length: [0,24]
+      width: [0,48,9]
+      angle: [0,90]
+      position: [0,0,12]
+      texture: [17,9]
+      bump:
+        position: 20
+        size: 34
+    bridgeBottom:
+      doubleside: true
+      offset:
+        x: 0
+        y: 80+mainypos
+        z: 44+bridgeZ
+      length: [0,29]
+      width: [0,59,9]
+      angle: [0,90]
+      position: [0,0,12]
+      texture: [4]
+      bump:
+        position: 20
+        size: 37
+
+
+
+
+
+
+
+
+
+
+
+return model;
