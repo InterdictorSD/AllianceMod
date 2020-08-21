@@ -174,33 +174,33 @@ model =
       texture: [2,12,63,16.9]
       vertical: true
       angle: 0
-    engines:
+    enginesTop:
       section_segments: 10
       offset:
         x: 28
-        y: 71+mainypos
-        z: 24
+        y: 64+mainypos
+        z: 22
       position:
-        x: [0,0,0,0,0,0,0,0,0]
-        y: [-20,-11,-1,24,69,78,72]
-        z: [-3,-1,-1,-1,0,0,0,0,0]
-      width: [0,6,10,14,16,14,0].mult(engineRadius)
-      height: [0,7,10,14,16,14,0].mult(engineRadius)
-      texture: [1,1,63,10,12,16.9]
+        x: [0,0,0,0,0,0,0,0,0,0,0]
+        y: [-20,-11,-1,24,39,70,78,81,80]
+        z: [-3,-1,-1,-1,0,0,0,0,0,0,0]
+      width: [0,6,10,14,16,14,17,10,0].mult(engineRadius)
+      height: [0,7,10,14,16,14,17,10,0].mult(engineRadius)
+      texture: [1,1,63,12,10,4,3,16.9]
       propeller: true
     engines2:
       section_segments: 10
       offset:
         x: 14
         y: 63+mainypos
-        z: -28
+        z: -24
       position:
-        x: [0,0,0,0,0,0,0,0,0]
-        y: [-20,-11,-1,24,69,78,72]
-        z: [5,3,3,2,0,0,0,0,0]
-      width: [0,6,10,14,16,14,0].mult(engineRadius)
-      height: [0,7,10,14,16,14,0].mult(engineRadius)
-      texture: [1,1,63,10,12,16.9]
+        x: [0,0,0,0,0,0,0,0,0,0,0]
+        y: [-20,-11,-1,24,39,70,78,81,80]
+        z: [0,0,0,0,0,0,0,0,0,0,0]
+      width: [0,6,10,14,16,14,17,10,0].mult(engineRadius)
+      height: [0,7,10,14,16,14,17,10,0].mult(engineRadius)
+      texture: [1,1,63,12,10,4,3,16.9]
       propeller: true
     cannonTop:
       section_segments: 8
