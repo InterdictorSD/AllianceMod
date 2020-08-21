@@ -104,7 +104,7 @@ model =
   name: 'Harkun'
   level: 6
   model: 4
-  size: 1.8
+  size: 2
   specs:
     shield:
       capacity: [250,375]
@@ -114,7 +114,7 @@ model =
       reload: [70,100]
     ship:
       mass: 300
-      speed: [83,107]
+      speed: [97,123]
       rotation: [35,55]
       acceleration: [48,76]
   bodies:
@@ -138,7 +138,7 @@ model =
         x: 0
         y: 30+mainypos
         z: 0
-      position:l
+      position:
         x: [0,0,0,0,0,0,0,0]
         y: [-136,-118,-94,-50,4,40,83,92]
         z: [0,0,0,0,0,0,0,0]
@@ -216,7 +216,7 @@ model =
       height: [0,5,8,12,20,20,16,0].mult(0.5)
       texture: [17,2,63,3,11,4]
       laser:
-        damage: [100,120]
+        damage: [40,60]
         rate: 1
         type: 2
         speed: [115,145]
@@ -314,7 +314,7 @@ model =
 
 
 addWingGun(0,50,44,1,-15)
-addWingGun(1,85,50,1.05,-15)
+addWingGun(1,85,52,1,-15)
 
 i=0
 loop
