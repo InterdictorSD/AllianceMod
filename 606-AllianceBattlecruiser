@@ -42,7 +42,7 @@ Bzpos = 52.5
 model =
   name: 'Alliance Battlecruiser'
   level: 6
-  model: 3
+  model: 6
   size: 4.7
   specs:
     shield:
@@ -54,7 +54,7 @@ model =
     ship:
       mass: 750
       speed: [63,76]
-      rotation: [20,35]
+      rotation: [15,30]
       acceleration: [30,55]
   bodies:
     mainBase:
