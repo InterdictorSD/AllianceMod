@@ -9,7 +9,7 @@ return model =
       reload: [3,5.5]
     generator:
       capacity: [100,140]
-      reload: [27,40]
+      reload: [25,37]
     ship:
       mass: 180
       speed: [122,136]
@@ -100,7 +100,7 @@ return model =
       texture: [16.9,2.9,3.9,63,3.9]
       laser:
         damage: [12,18]
-        rate: 4
+        rate: 3
         type: 1
         speed: [110,145]
         number: 1
@@ -119,7 +119,7 @@ return model =
       texture: [16.9,2.9,3.9,63,3.9]
       laser:
         damage: [12,18]
-        rate: 4
+        rate: 3
         type: 1
         speed: [110,145]
         number: 1
