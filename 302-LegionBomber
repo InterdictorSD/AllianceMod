@@ -8,12 +8,12 @@ return model =
       capacity: [180,240]
       reload: [3,5.5]
     generator:
-      capacity: [100,140]
+      capacity: [80,120]
       reload: [25,37]
     ship:
       mass: 180
       speed: [122,136]
-      rotation: [50,80]
+      rotation: [40,60]
       acceleration: [45,90]
   bodies:
     main:
