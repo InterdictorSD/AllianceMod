@@ -34,10 +34,10 @@ model =
   size: 3.4
   specs:
     shield:
-      capacity: [400,550]
+      capacity: [350,450]
       reload: [5,10]
     generator:
-      capacity: [250,350]
+      capacity: [200,300]
       reload: [65,85]
     ship:
       mass: 500
