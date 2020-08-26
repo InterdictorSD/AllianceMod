@@ -37,8 +37,8 @@ model =
       capacity: [400,550]
       reload: [5,10]
     generator:
-      capacity: [300,400]
-      reload: [68,92]
+      capacity: [250,350]
+      reload: [65,85]
     ship:
       mass: 500
       speed: [80,100]
