@@ -135,6 +135,20 @@ model =
       height: [0,8,14,18,22,19,0]
       texture: [4,4,3,63,18,4]
       propeller: true
+    mainSides:
+      section_segments: 9
+      offset:
+        x: 20
+        y: 23+mainypos
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-80,-74,-28,0,30,74,82]
+        z: [0,-1,0,0,0,0,0]
+      width: [0,11,19,20,23,19,0]
+      height: [0,8,14,17,18,14,0]
+      texture: [4,18,13,63,18,4]
+      propeller: true
     cockpit:
       section_segments: 8
       offset:
@@ -158,7 +172,7 @@ model =
         x: [0,0,0,0]
         y: [-20,-10,50,85]
         z: [0,0,0,0]
-      width: [0,60,80,0]
+      width: [0,60,70,0]
       height: [0,19,23,0]
       texture: 63
     turretBaseT:
@@ -171,7 +185,7 @@ model =
         x: [0,0,0,0]
         y: [-21,-10,50,85]
         z: [0,0,0,0]
-      width: [0,61,82,0]
+      width: [0,61,72,0]
       height: [0,19,23,0]
       texture: [4].add(-0.1)
     turretBaseTI:
@@ -184,7 +198,7 @@ model =
         x: [0,0,0,0]
         y: [-20,-10,50,85]
         z: [0,0,0,0]
-      width: [0,55,76,0]
+      width: [0,55,66,0]
       height: [0,20,23,0]
       texture: [4].add(-0.1)
     topV8Base2:
@@ -285,55 +299,149 @@ model =
       height: [0,6,9,13,20,14,0].mult(engineRadius)
       texture: [4,4,63,18,63,16.9]
       propeller: true
-  wings:
-    main:
-      doubleside: true
+    mainSide2:
+      section_segments: [-140,-140,-90,-40,-40,40,40,40,90,140]
+      offset:
+        x: 0
+        y: 28+mainypos
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-138,-138,-118,-50,-14,40,93,92]
+        z: [0,0,0,0,0,0,0,0]
+      width: [0,9,17,33,31,40,31,0]
+      height: [0,5,14,20,23,29,24,0]
+      texture: [4,4,10.76,63,4,13,12]
+    topSide:
+      section_segments: [-140,-140,-90,-40,-40,40,40,40,90,140]
+      offset:
+        x: 0
+        y: 28+mainypos
+        z: 10
+      position:
+        x: [0,0,0,0,0,0,0,0]
+        y: [-108,-108,-58,-30,4,50,93,92]
+        z: [0,0,0,0,0,0,0,0]
+      width: [0,9,20,26,31,40,31,0]
+      height: [0,6,14,20,23,29,24,0]
+      texture: [2,12,63,4,13,11.1,12]
+    sideRails:
+      section_segments :[-140,-140,-90,-40,-40,40,40,40,90,140]
+      offset:
+        x :80
+        y :64+mainypos
+        z :0
+      position:
+        x :[-10,-10,0,0,0,0,0,-7,-7]
+        y :[-105,-115,-50,-50,-30,-20,4,50,50]
+        z :[0,0,0,0,0,0,0,0,0]
+      width :[0,11,14,16,16,16,16,16,0]
+      height :[0,10,14,16,16,16,16,16,0]
+      angle :0
+      texture :[12,4,17,2.9,12.9,63,9.935,10.9]
+    sideConnect1:
+      section_segments: 14
+      offset:
+        x: 49
+        y: 50+mainypos
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-20,-20,-17,-9,-6,-6,-20]
+        z: [0,0,0,0,0,0,0]
+      width: [24,28,28,28,28,24,28].mult(1.2)
+      height: [15,21,21,21,21,15,21].mult(0.6)
+      texture: [17,17,4,17,17,4]
+    sideConnect2:
+      section_segments: 14
+      offset:
+        x: 49
+        y: 70+mainypos
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-20,-20,-17,-9,-6,-6,-20]
+        z: [0,0,0,0,0,0,0]
+      width: [24,28,28,28,28,24,28].mult(1.2)
+      height: [15,21,21,21,21,15,21].mult(0.6)
+      texture: [17,17,4,17,17,4]
+    sideConnect3:
+      section_segments: 14
+      offset:
+        x: 49
+        y: 90+mainypos
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-20,-20,-17,-9,-6,-6,-20]
+        z: [0,0,0,0,0,0,0]
+      width: [24,28,28,28,28,24,28].mult(1.2)
+      height: [15,21,21,21,21,15,21].mult(0.6)
+      texture: [17,17,4,17,17,4]
+    PRONG:
+      section_segments: [-140,-140,-90,-40,-40,40,40,40,90,140]
+      offset:
+        x: -9
+        y: 85+mainypos
+        z: 21
+      position:
+        x: [-50,-50,-20,-40,-40,0,-20,-10]
+        y: [-36,-36,-20,-20,-20,-6,-6,20]
+        z: [0,0,0,0,0,0,0,0,0]
+      width: [0,15,40,44,49,68,20,20]
+      height: [0,5,8,8,8,8,8,8]
+      texture: [4,4,4,17,63,17,17]
+      angle: 90
+    prong2:
+      section_segments: [-140,-140,-90,-40,-40,40,40,40,90,140]
+      offset:
+        x: -84
+        y: 45+mainypos
+        z: 0
+      position:
+        x: [-50,-50,-20,-40,-40,0,-20,-10,-10]
+        y: [-36,-36,-20,-20,-20,-6,-6,0,0]
+        z: [0,0,0,0,0,0,0,0,0,0]
+      width: [0,15,40,44,49,68,20,20,0]
+      height: [0,5,8,8,8,8,8,8,0]
+      texture: [4,4,4,17,63,17,17]
+      angle: 90
+    ringThingReactor:
+      section_segments: 14
       offset:
         x: 25
-        y: -56+mainypos
-        z: -5
-      length: [24]
-      width: [28,12]
-      angle: [-20]
-      position: [0,8]
-      texture: [4]
-      bump:
-        position: 0
-        size: 10
-    main2:
-      doubleside: true
+        y: 20+mainypos
+        z: 21
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-20,-20,-17,-9,-6,-6,-20]
+        z: [0,0,0,0,0,0,0]
+      width: [24,28,28,28,28,24,28].mult(1.2)
+      height: [15,21,21,21,21,15,21].mult(0.6)
+      texture: [17,17,4,17,17,4]
+      angle: 95
+    ringThingGuns:
+      section_segments: 14
       offset:
-        x: 25
-        y: -36+mainypos
-        z: -5
-      length: [24]
-      width: [28,12]
-      angle: [-20]
-      position: [0,-8]
-      texture: [4]
-      bump:
-        position: 0
-        size: 10
-    mainHL:
-      doubleside: true
-      offset:
-        x: 25
-        y: -46+mainypos
-        z: -5
-      length: [24]
-      width: [28,12]
-      angle: [-20]
-      position: [0,0]
-      texture: [63]
-      bump:
-        position: 0
-        size: 11
+        x: 93
+        y: 47+mainypos
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-20,-20,-17,-9,-6,-6,-20]
+        z: [0,0,0,0,0,0,0]
+      width: [24,28,28,28,28,24,28].mult(1.4)
+      height: [15,21,21,21,21,15,21]
+      texture: [17,17,4,17,17,4]
+      angle: 90
+
+
+
 
 
 i=0
 loop
-  addTurret(i,37+i*4,40+i*14,18,0.3,-40)
-  addTurret(i+2,22+i*4,40+i*14,21,0.3,-40)
+  addTurret(i,35+i*2.3,40+i*14,18,0.3,0)
   i = i+1
   if i == 4 then break
 
