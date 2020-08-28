@@ -87,7 +87,7 @@ addSidegun = (n, xpos, ypos, zpos, size, angle, texture, damage) ->
       position:
         x: [0,0,0,0,0,0,0]
         y: [-50,-54,-20,0,20,50,55].mult(size)
-        z: [0,0,0,0,0,0,0]
+        z: [3,3,2,2,1,0,0]
       width: [0,5,10,10,15,7,0].mult(size)
       height: [0,5,11,10,18,6,0].mult(size)
       angle: angle
@@ -99,14 +99,14 @@ addSidegun = (n, xpos, ypos, zpos, size, angle, texture, damage) ->
         speed: [135,165]
         number: 1
         angle: 0
-        error: 2
+        error: 0
 
 
 mainypos = -5
 engineRadius = 0.94
 engineRadius2 = 0.38
-Bypos = 112
-Bzpos = 53
+Bypos = 105
+Bzpos = 58
 
 
 model =
@@ -124,7 +124,7 @@ model =
     ship:
       mass: 900
       speed: [75,75]
-      rotation: [28,28]
+      rotation: [22,22]
       acceleration: [43,43]
   bodies:
     mainBase:
@@ -154,7 +154,7 @@ model =
       height: [0,30,33,38,26,0]
       texture: [63,4,18,12,3]
     mainBPlateTop:
-      section_segments: 7
+      section_segments: [-140,-140,-90,-40,-40,40,40,40,90,140]
       offset:
         x: 0
         y: 20+mainypos
@@ -164,23 +164,53 @@ model =
         y: [-7,15,62,112,130]
         z: [22,1,2,0,-4]
       width: [0,60,72,66,0].mult(0.5)
-      height: [0,33,38,26,0].mult(0.8)
-      texture: [3,63,8]
+      height: [0,39,42,37,0].mult(0.8)
+      texture: [3,63,8,13]
     reactor:
       section_segments: 8
       offset:
-        x: 54
+        x: 47
         y: 8
         z: -127-mainypos
       position:
         x: [0,0,0,0,0,0,0,0,0,0]
         y: [0,0,15,16,18,17,17,17,17,17]
         z: [0,0,0,0,0,0,0,0,0,0]
-      width: [0,16,16,15,13,12,10,9,8,0].mult(0.7)
-      height: [0,16,16,15,13,12,10,9,8,0].mult(0.7)
+      width: [0,16,16,15,13,12,10,9,8,0].mult(0.66)
+      height: [0,16,16,15,13,12,10,9,8,0].mult(0.66)
       texture: [2,12,3,4,17,1,17,4,17]
       vertical: true
       angle: 0
+    reactor2:
+      section_segments: 8
+      offset:
+        x: 54
+        y: 8
+        z: -97-mainypos
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [0,0,15,16,18,17,17,17,17,17]
+        z: [0,0,0,0,0,0,0,0,0,0]
+      width: [0,16,16,15,13,12,10,9,8,0].mult(0.66)
+      height: [0,16,16,15,13,12,10,9,8,0].mult(0.66)
+      texture: [2,12,3,4,17,1,17,4,17]
+      vertical: true
+      angle: 0
+    reactorConnect:
+      section_segments: [45,135,225,315]
+      offset:
+        x: 49
+        y: 111+mainypos
+        z: 10
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-2,-2,-2,-2,0,2,2,4,4,4]
+        z: [0,0,0,0,0,0,0,0,0,0]
+      width: [0,18,20,20,20,20,20,20,18,0]
+      height: [0,18,20,20,20,20,20,20,18,0]
+      texture: [12,13,17,4,17,4,4,17]
+      angle: 77
+      propeller: false
     enginesInner:
       section_segments: 10
       offset:
@@ -223,6 +253,142 @@ model =
       height :[0,10,14,16,16,17,18,18,0].mult(1.4)
       angle :0
       texture :[18,3,17,3.9,12.9,63,4,17.9]
+    sideConnect1:
+      section_segments: 16
+      offset:
+        x: 34
+        y: 5+mainypos
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-20,-20,-17,-9,-6,-6,-20]
+        z: [0,0,0,0,0,0,0]
+      width: [24,28,28,28,28,24,28].mult(1.4)
+      height: [15,21,21,21,21,15,21].mult(0.65)
+      texture: [17,17,4,17,17,4]
+    sideConnect2:
+      section_segments: 16
+      offset:
+        x: 31
+        y: -15+mainypos
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-20,-20,-17,-9,-6,-6,-20]
+        z: [0,0,0,0,0,0,0]
+      width: [24,28,28,28,28,24,28].mult(1.4)
+      height: [15,21,21,21,21,15,21].mult(0.6)
+      texture: [17,17,4,17,17,4]
+    sideConnect3:
+      section_segments: 16
+      offset:
+        x: 28
+        y: -35+mainypos
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-20,-20,-17,-9,-6,-6,-20]
+        z: [0,0,0,0,0,0,0]
+      width: [24,28,28,28,28,24,28].mult(1.4)
+      height: [15,21,21,21,21,15,21].mult(0.55)
+      texture: [17,17,4,17,17,4]
+    sideConnect4:
+      section_segments: 16
+      offset:
+        x: 25
+        y: -55+mainypos
+        z: 0
+      position:
+        x: [0,0,0,0,0,0,0]
+        y: [-20,-20,-17,-9,-6,-6,-20]
+        z: [0,0,0,0,0,0,0]
+      width: [24,28,28,28,28,24,28].mult(1.4)
+      height: [15,21,21,21,21,15,21].mult(0.5)
+      texture: [17,17,4,17,17,4]
+    Ring_connector:
+      section_segments: [-140,-140,-90,-40,-40,40,40,40,90,140]
+      offset:
+        x: -38
+        y: -45+mainypos
+        z: 0
+      position:
+        x: [-50,-20,-40,-40,0,-20,-10]
+        y: [-30,-20,-20,-20,-6,-6,20]
+        z: [0,0,0,0,0,0,0,0]
+      width: [15,40,47,48,78,20,20]
+      height: [5,8,8,8,8,8,8]
+      texture: [63,63,17,4,18,17]
+      angle: 86
+    frontDeco:
+      section_segments: 8
+      offset:
+        x: 25
+        y: -22+mainypos
+        z: 13
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-12,-12,-12,-2,-2,2,2,12,12,12]
+        z: [0,0,0,0,0,0,0,0,0,0]
+      width: [0,12,14,14,14,14,14,14,12,0]
+      height: [0,12,14,14,14,14,14,14,12,0]
+      texture: [4,4,63,3,4,15.1,13,18]
+      propeller: false
+    frontDeco2:
+      section_segments: 8
+      offset:
+        x: 20
+        y: -46+mainypos
+        z: 11
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-12,-12,-12,-2,-2,2,2,12,12,12]
+        z: [0,0,0,0,0,0,0,0,0,0]
+      width: [0,12,14,14,14,14,14,14,12,0]
+      height: [0,12,14,14,14,14,14,14,12,0]
+      texture: [4,4,63,3,4,15.1,13,18]
+      propeller: false
+    backSides:
+      section_segments :[-140,-140,-90,-40,-40,40,40,40,90,140]
+      offset:
+        x :79
+        y :112+mainypos
+        z :0
+      position:
+        x :[-12,-12,0,0,0,0,0,-7,-7]
+        y :[-105,-115,-50,-50,-30,-20,4,50,50]
+        z :[0,0,0,0,0,0,0,0,0]
+      width :[0,14,14,16,16,16,16,16,0]
+      height :[0,14,14,16,16,16,16,16,0]
+      angle :10
+      texture :[18,3,17,3.9,12.9,63,4,17.9]
+    secondaryEnginesT:
+      section_segments: 10
+      offset:
+        x: 68
+        y: 89+mainypos
+        z: 12
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-14,-13,-10,0,62,65,78,75]
+        z: [0,0,0,0,0,0,0,0,0,0]
+      width: [0,5,8,12,19,18,16,0].mult(0.6)
+      height: [0,6,9,13,20,18,16,0].mult(0.6)
+      texture: [4,4,63,18,63,13,16.9]
+      propeller: true
+    secondaryEnginesL:
+      section_segments: 10
+      offset:
+        x: 68
+        y: 89+mainypos
+        z: -12
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-14,-13,-10,0,62,65,78,75]
+        z: [0,0,0,0,0,0,0,0,0,0]
+      width: [0,5,8,12,19,18,16,0].mult(0.6)
+      height: [0,6,9,13,20,18,16,0].mult(0.6)
+      texture: [4,4,63,18,63,13,16.9]
+      propeller: true
 
   wings:
     bridgeM1:
@@ -249,7 +415,7 @@ model =
       width: [0,48,9]
       angle: [90,90]
       position: [0,0,12]
-      texture: [1]
+      texture: [4]
       bump:
         position: 20
         size: 34
@@ -263,7 +429,7 @@ model =
       width: [0,51,51,9]
       angle: [90,90,90]
       position: [0,0,0,12]
-      texture: [1,17,1]
+      texture: [4,17,4]
       bump:
         position: 20
         size: 39
@@ -277,7 +443,7 @@ model =
       width: [0,51,51,9]
       angle: [90,90,90]
       position: [0,0,0,12]
-      texture: [1,17,1]
+      texture: [4,17,4]
       bump:
         position: 20
         size: 39
@@ -291,7 +457,7 @@ model =
       width: [0,51,51,9]
       angle: [90,90,90]
       position: [0,0,0,12]
-      texture: [1,17,1]
+      texture: [4,17,4]
       bump:
         position: 20
         size: 39
@@ -299,16 +465,17 @@ model =
 
 
 
-###
+
 i=0
 loop
-  addSidegun(i,65+i*2,10+i*13,8,0.3,-90,4,[8,8])
-  addSidegun(i+4,75-i*1.2,66.5+i*13,7,0.3,-90,3,[8,8])
+  addSidegun(i,9+i*5,10+i*13,33-i*0.5,0.3,0,4,[8,8])
+  addSidegun(i+2,9+i*6,-114+i*18,13,0.3,0,4,[8,8])
+  addSidegun(i+4,6+i*6,-111+i*18,12+i*1.6,0.3,0,4,[8,8])
   i = i+1
   if i == 5 then break
 
 addSidegun(15,28,-76,0,0.6,0,4,[60,60])
-addSidegun(16,17,-102,0,0.6,0,4,[60,60])###
+addSidegun(16,17,-102,0,0.6,0,4,[60,60])
 
 
 return model;
