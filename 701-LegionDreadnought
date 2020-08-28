@@ -113,7 +113,7 @@ model =
   name: 'Legion Dreadnought'
   level: 7
   model: 1
-  size: 4.8
+  size: 5.6
   specs:
     shield:
       capacity: [850,850]
