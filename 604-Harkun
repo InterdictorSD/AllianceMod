@@ -111,7 +111,7 @@ model =
       reload: [7,11]
     generator:
       capacity: [240,360]
-      reload: [70,100]
+      reload: [73,106]
     ship:
       mass: 300
       speed: [97,123]
@@ -313,8 +313,8 @@ model =
 
 
 
-addWingGun(0,50,44,1,-15)
-addWingGun(1,85,52,1,-15)
+addWingGun(0,50,44,1,-8)
+addWingGun(1,85,52,1,-8)
 
 i=0
 loop
