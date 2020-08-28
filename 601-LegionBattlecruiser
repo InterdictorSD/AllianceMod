@@ -97,9 +97,9 @@ model =
   specs:
     shield:
       capacity: [550,650]
-      reload: [7,10]
+      reload: [6,9]
     generator:
-      capacity: [250,400]
+      capacity: [220,350]
       reload: [80,105]
     ship:
       mass: 600
