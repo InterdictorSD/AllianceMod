@@ -104,7 +104,7 @@ model =
   name: 'Harkun'
   level: 6
   model: 4
-  size: 2
+  size: 1.6
   specs:
     shield:
       capacity: [250,375]
