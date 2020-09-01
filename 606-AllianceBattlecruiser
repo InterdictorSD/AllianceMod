@@ -156,7 +156,7 @@ model =
       texture: [17,63,13,3,10,4]
       laser:
         damage: [3,5]
-        rate: 10
+        rate: 7
         type: 1
         speed: [130,150]
         number: 1
@@ -189,7 +189,7 @@ model =
       texture: [17,63,13,3,10,4]
       laser:
         damage: [3,5]
-        rate: 10
+        rate: 7
         type: 1
         speed: [130,150]
         number: 1
