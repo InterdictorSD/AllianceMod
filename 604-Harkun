@@ -110,7 +110,7 @@ model =
       capacity: [250,375]
       reload: [7,11]
     generator:
-      capacity: [240,360]
+      capacity: [255,380]
       reload: [73,106]
     ship:
       mass: 300
