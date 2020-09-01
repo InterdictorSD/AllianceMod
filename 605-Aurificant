@@ -111,7 +111,7 @@ model =
       reload: [6,8]
     generator:
       capacity: [200,300]
-      reload: [68,92]
+      reload: [71,96]
     ship:
       mass: 320
       speed: [95,115]
@@ -217,9 +217,9 @@ model =
         rate: 1
         type: 2
         speed: [130,180]
-        number: 4
+        number: 6
         angle: 0
-        recoil: 35
+        recoil: 30
         error: 0
     sideConnect:
       section_segments: 14
