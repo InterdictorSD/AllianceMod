@@ -63,19 +63,218 @@ ships.push(Chratis_703);
 ships.push();
 ships.push();
 
+const hues = [
+  [0,120],
+  [120,240],
+  [0,240],
+];
+const hue = hues[Math.floor(Math.random() * hues.length)];
+
 //Game options
 this.options = {
-//  root_mode: "team",
+  root_mode: "team",
   ships: ships,
-  crystal_value: 5,
-  asteroids_strength: 0.1,
+  crystal_value: 1.4,
+  hues: hue,
+  friendly_colors: 2,
+  healing_enabled: false,
+  asteroids_strength: 1,
   reset_tree: true,
-  map_size: 100
+  map_size: 120
+};
+
+const healing = {
+  gem_cost: [5, 10, 15, 20, 25, 30, 35],
+  shield_limit: 0.5,
+  switch_delay: 5,
+  hotkey: "H",
+};
+
+
+// Patch terminal.error() for fatal errors
+
+const mod_this = this;
+const modding = game.modding;
+const terminal = game.modding.terminal;
+
+if (!terminal.error.old) {
+  const error = function(message, options) {
+    var stop;
+    if (message instanceof Error) {
+      let lines = message.stack.split("\n");
+      message = lines[0] + "\n";
+      if (lines.length > 1) {
+        let position = lines[1].match(/<anonymous>:(\d+):(\d+)\)?$/);
+        if (position) {
+          message += `  at line: ${position[1]}, column: ${position[2]}\n`;
+        }
+      }
+      console.error(message);
+      stop = !modding.field_view;
+    } else {
+      stop = modding.context && modding.context.stop;
+    }
+    error.old.call(this, message, options);
+    if (stop) {
+      modding.context = null;
+      throw "Mod stopped";
+    }
+  }
+  error.old = terminal.error;
+  terminal.error = error;
+}
+
+const fatal_error = function(message) {
+  mod_this.stop = !modding.field_view;
+  throw "\nFatal Error: " + message + "\n";
+};
+
+// Check healing options
+
+if (!healing) {
+  fatal_error("Missed healing options");
+}
+var missed_opts = [];
+["gem_cost", "shield_limit", "switch_delay", "hotkey"].forEach(opt => {
+  if (!(opt in healing)) {
+    missed_opts.push(opt);
+  }
+});
+if (!healing.gem_cost && "gem_cost" in healing) {
+  missed_opts.push("gem_cost");
+}
+if (missed_opts.length > 0) {
+  fatal_error(`Missed healing options: ${missed_opts}`);
+}
+var tiers = [];
+for (let i = 0; i < 7; i++) {
+  if (typeof healing.gem_cost[i] !== "number") {
+    tiers.push(i + 1);
+  }
+}
+if (tiers.length > 0) {
+  fatal_error(`Missed healing gem_cost for Tiers: ${tiers}`);
+}
+
+// Healing logic
+
+healing.switch_ticks = healing.switch_delay * 60;
+healing.switch_timeout = healing.switch_delay * 1000;
+healing.hotkey = healing.hotkey.toUpperCase();
+
+const shield_limits = {};
+
+for (let ship of ships) {
+  try {
+    ship = JSON.parse(ship);
+  } catch (e) {
+    fatal_error(`Can't parse JSON code of ship:\n\n${ship}\n\n${e.message}`);
+  }
+  let code = ship.typespec.level * 100 + ship.typespec.model;
+  shield_limits[code] = ship.typespec.specs.shield.capacity.map(cap => cap * healing.shield_limit);
+}
+
+const buttons = {};
+
+buttons.healing_off = {
+  id: "healing",
+  position: [6,30,8,14],
+  clickable: true,
+  visible: true,
+  shortcut: healing.hotkey,
+  components: [
+    { type: "box",  position: [0,0,100,100], stroke: "#CDE", width: 2 },
+    { type: "text", position: [10,35,80,30], value: "Healing: OFF", color: "#CDE" },
+    { type: "text", position: [20,70,60,20], value: `[${healing.hotkey}]`, color: "#CDE" }
+  ],
+};
+
+buttons.healing_on = {...buttons.healing_off};
+buttons.healing_on.components = buttons.healing_off.components.map(cmp => ({...cmp}));
+buttons.healing_on.components[1].value = "Healing: ON";
+
+buttons.healing_off_disabled = {...buttons.healing_off};
+buttons.healing_on_disabled = {...buttons.healing_on};
+buttons.healing_off_disabled.clickable = false;
+buttons.healing_on_disabled.clickable = false;
+
+const switch_healing = function(ship) {
+  if (ship.custom.next_switch && game.step < ship.custom.next_switch) {
+    return;
+  }
+  if (ship.custom.type !== ship.type) {
+    let level = Math.trunc(ship.type / 100);
+    ship.custom.healing_cost = healing.gem_cost[level - 1];
+    let limits = shield_limits[ship.type];
+    ship.custom.healing_limits = [ (limits[1] - limits[0]) / level, limits[0] ];
+    ship.custom.type = ship.type;
+  }
+  let shield_stat = Math.trunc(ship.stats / 1e7);
+  if (ship.custom.shield_stat !== shield_stat) {
+    ship.custom.shield_stat = shield_stat;
+    ship.custom.healing_limit = ship.custom.healing_limits[0] * shield_stat + ship.custom.healing_limits[1];
+  }
+  let crystals = ship.crystals - ship.custom.healing_cost;
+  if (crystals >= 0 && ship.shield >= ship.custom.healing_limit) {
+    ship.custom.next_switch = game.step + healing.switch_ticks;
+    if (ship.custom.healing) {
+      ship.set({ healing: false, crystals });
+      ship.custom.healing = false;
+      ship.setUIComponent(buttons.healing_off_disabled);
+      setTimeout(() => ship.setUIComponent(buttons.healing_off), healing.switch_timeout);
+    } else {
+      ship.set({ healing: true, crystals });
+      ship.custom.healing = true;
+      ship.setUIComponent(buttons.healing_on_disabled);
+      setTimeout(() => ship.setUIComponent(buttons.healing_on), healing.switch_timeout);
+    }
+  } else {
+    ship.custom.next_switch = game.step + 30;
+  }
 };
 
 
 
 
 this.tick = function(game) {
-  //
+  if (game.step % 30 === 0) {
+    for (let ship of game.ships) {
+      if (!ship.custom.init) {
+        ship.setUIComponent(buttons.healing_off);
+        ship.setUIComponent(buttons.info);
+        ship.setUIComponent(buttons.info2);
+        ship.custom.init = true;
+      }
+    }
+  }
 };
+
+this.event = function(event, game) {
+  switch (event.name) {
+    case "ui_component_clicked":
+      let ship = event.ship;
+      let component = event.id;
+      if (component === "healing" && ship != null) {
+        switch_healing(ship);
+      }
+      break;
+  }
+};
+
+buttons.info = {
+  id:"info",
+  visible: true,
+  position: [30,5,40,5],
+  components: [
+    { type: "text",position: [0,0,100,100],color: "#FFF",value: "Toggling healing costs as much as an upgrade; spend your gems wisely!"}
+  ]
+};
+buttons.info2 = {
+  id:"info2",
+  visible: true,
+  position: [30,8,40,5],
+  components: [
+    { type: "text",position: [0,0,95,95],color: "#FFF",value: "Remember, there is also a 5-second cooldown to toggle healing."}
+  ]
+};
+
