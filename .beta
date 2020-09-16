@@ -56,13 +56,13 @@ ships.push(Legion_Cruiser_603);
 ships.push(Harkun_604);
 ships.push(Aruificant_605);
 ships.push(Alliance_Battlecruiser_606);
-
+/*
 ships.push(Legion_Dreadnought_701); //7
 ships.push(Starlight_702);
 ships.push(Chratis_703);
 ships.push();
 ships.push();
-
+*/
 const hues = [
   [0,120],
   [120,240],
@@ -74,7 +74,8 @@ const hue = hues[Math.floor(Math.random() * hues.length)];
 this.options = {
   root_mode: "team",
   ships: ships,
-  crystal_value: 1.4,
+  crystal_value: 2.1,
+  station_crystal_capacity: 0.8,
   hues: hue,
   friendly_colors: 2,
   healing_enabled: false,
@@ -119,7 +120,7 @@ if (!terminal.error.old) {
       modding.context = null;
       throw "Mod stopped";
     }
-  }
+  };
   error.old = terminal.error;
   terminal.error = error;
 }
@@ -234,8 +235,6 @@ const switch_healing = function(ship) {
 };
 
 
-
-
 this.tick = function(game) {
   if (game.step % 30 === 0) {
     for (let ship of game.ships) {
@@ -274,7 +273,22 @@ buttons.info2 = {
   visible: true,
   position: [30,8,40,5],
   components: [
-    { type: "text",position: [0,0,95,95],color: "#FFF",value: "Remember, there is also a 5-second cooldown to toggle healing."}
+    { type: "text",position: [0,0,93,93],color: "#FFF",value: "Remember, there is also a 5-second cooldown to toggle healing."}
   ]
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
