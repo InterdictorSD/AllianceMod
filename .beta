@@ -68,6 +68,9 @@ const hues_sets = [
   [0,120],
   [120,240],
   [0,240],
+  [0,60],
+  [60,240],
+  [60,120],
 ];
 
 const hues = hues_sets[Math.floor(Math.random() * hues_sets.length)];
