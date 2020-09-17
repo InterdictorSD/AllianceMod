@@ -78,12 +78,12 @@ const hues = hues_sets[Math.floor(Math.random() * hues_sets.length)];
 
 //Game options
 this.options = {
-  root_mode: "team",
+//  root_mode: "team",
   ships: ships,
   crystal_value: 2.2,
   station_crystal_capacity: 0.8,
   hues: hues,
-  friendly_colors: 2,
+//  friendly_colors: 2,
   healing_enabled: false,
   asteroids_strength: 1,
   reset_tree: true,
