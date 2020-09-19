@@ -94,9 +94,9 @@ addSidegun = (n, xpos, ypos, zpos, size, angle, texture, damage) ->
       texture: [17,13,10,63,texture,texture]
       laser:
         damage: damage
-        rate: 3
+        rate: 2
         type: 1
-        speed: [135,165]
+        speed: [135,135]
         number: 1
         angle: 0
         error: 0
@@ -124,7 +124,7 @@ model =
     ship:
       mass: 900
       speed: [75,75]
-      rotation: [22,22]
+      rotation: [18,18]
       acceleration: [43,43]
   bodies:
     mainBase:
