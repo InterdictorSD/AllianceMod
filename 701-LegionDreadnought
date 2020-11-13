@@ -196,6 +196,36 @@ model =
       texture: [2,12,3,4,17,1,17,4,17]
       vertical: true
       angle: 0
+    reactor3:
+      section_segments: 8
+      offset:
+        x: 51
+        y: 7
+        z: -19-mainypos
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [0,0,15,16,18,17,17,17,17,17]
+        z: [0,0,0,0,0,0,0,0,0,0]
+      width: [0,16,16,15,13,12,10,9,8,0].mult(0.66)
+      height: [0,16,16,15,13,12,10,9,8,0].mult(0.66)
+      texture: [2,12,3,4,17,1,17,4,17]
+      vertical: true
+      angle: 0
+    reactor4:
+      section_segments: 8
+      offset:
+        x: 57.5
+        y: 7
+        z: -52-mainypos
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [0,0,15,16,18,17,17,17,17,17]
+        z: [0,0,0,0,0,0,0,0,0,0]
+      width: [0,16,16,15,13,12,10,9,8,0].mult(0.66)
+      height: [0,16,16,15,13,12,10,9,8,0].mult(0.66)
+      texture: [2,12,3,4,17,1,17,4,17]
+      vertical: true
+      angle: 0
     reactorConnect:
       section_segments: [45,135,225,315]
       offset:
@@ -210,6 +240,21 @@ model =
       height: [0,18,20,20,20,20,20,20,18,0]
       texture: [12,13,17,4,17,4,4,17]
       angle: 77
+      propeller: false
+    reactorConnect2:
+      section_segments: [45,135,225,315]
+      offset:
+        x: 56
+        y: 40+mainypos
+        z: 8
+      position:
+        x: [0,0,0,0,0,0,0,0,0,0]
+        y: [-2,-2,-2,-2,0,2,2,4,4,4]
+        z: [0,0,0,0,0,0,0,0,0,0]
+      width: [0,18,20,20,20,20,20,20,18,0]
+      height: [0,18,20,20,20,20,20,20,18,0]
+      texture: [12,13,17,4,17,4,4,17]
+      angle: -77
       propeller: false
     enginesInner:
       section_segments: 10
@@ -318,6 +363,20 @@ model =
       width: [15,40,47,48,78,20,20]
       height: [5,8,8,8,8,8,8]
       texture: [63,63,17,4,18,17]
+      angle: 86
+    Ring_connector2:
+      section_segments: [-140,-140,-90,-40,-40,40,40,40,90,140]
+      offset:
+        x: -62
+        y: -15+mainypos
+        z: 0
+      position:
+        x: [-50,-20,-40,-40,0,-20,-10]
+        y: [-24,-21,-20,-20,-6,-6,20]
+        z: [0,0,0,0,0,0,0,0]
+      width: [0,40,47,48,78,20,20]
+      height: [0,8,8,8,8,8,8]
+      texture: [63,63,17,3,18,17]
       angle: 86
     frontDeco:
       section_segments: 8
