@@ -364,7 +364,7 @@ model =
       offset:
         x: 15
         y: 9
-        z: 72-mainypos
+        z: 74-mainypos
       position:
         x: [0,0,0,0,0]
         y: [-12,-12,-6,-6,-12]
